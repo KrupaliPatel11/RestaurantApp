@@ -56,11 +56,8 @@ module.exports = {
             return res.send({ Error: "Food is not found" })
         }
         else {
-
         const removeCart = await Cart.updateOne({foodName : foodName, isDeleted: false}).set({isDeleted : true})
-
         const removeWishlist = await  Wishlist.updateOne({foodName : foodName, isDeleted: false}).set({isDeleted : true}) 
-        
         const removeFood = await Food.updateOne({ foodName: foodName, isDeleted : false}).set({isDeleted : true})
             return res.send({
                 Message: "Food removed successfully",
